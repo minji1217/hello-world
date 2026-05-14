@@ -1,0 +1,606 @@
+아주 잘 보여!  
+이제 이 포스터 내용을 그대로 반영한 GitHub Pages용 `index.html`을 만들어 줄게. 아래 코드를 통째로 복붙해서 `index.html`로 저장하면 바로 쓸 수 있어. (화이트-블루톤, 단일 파일, 모바일 대응까지 넣었어.)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Context-Aware Personalized Citation Recommendation System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg-main: #f5f7ff;
+      --bg-card: #ffffff;
+      --accent: #2f68e8;
+      --accent-soft: #e3edff;
+      --accent-dark: #1c3f96;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border-soft: #d4d9e5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      background: radial-gradient(circle at top, #e3edff 0, #f5f7ff 40%, #ffffff 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    /* Top banner */
+    .top-bar {
+      background: #24479f;
+      color: #e5edff;
+      border-radius: 10px 10px 0 0;
+      padding: 6px 18px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar span {
+      opacity: 0.9;
+    }
+
+    header {
+      background: linear-gradient(90deg, #2856c9 0, #437cf0 60%, #79a4ff 100%);
+      color: #f9fbff;
+      border-radius: 0 0 10px 10px;
+      padding: 20px 18px 18px;
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.18);
+      margin-bottom: 28px;
+    }
+
+    header h1 {
+      font-size: clamp(26px, 3.1vw, 32px);
+      margin-bottom: 4px;
+      font-weight: 750;
+    }
+
+    header .subtitle {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-bottom: 14px;
+    }
+
+    .header-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 13px;
+      opacity: 0.96;
+    }
+
+    .header-bottom div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .pill {
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    main {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 3.3fr) minmax(260px, 1.8fr);
+      gap: 18px;
+    }
+
+    /* Generic section card */
+    .section {
+      background: var(--bg-card);
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+      padding: 16px 18px 14px;
+      margin-bottom: 16px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    .section-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #f9fbff;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .section-label {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      border: 1px solid #c3d5ff;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .section h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .section p {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .section ul {
+      font-size: 14px;
+      padding-left: 18px;
+      margin-bottom: 6px;
+    }
+
+    .section ul li + li {
+      margin-top: 2px;
+    }
+
+    .note {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Diagram-like blocks */
+    .pipeline-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .pill-block {
+      flex: 1 1 120px;
+      min-width: 135px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: #f4f7ff;
+      border: 1px solid #d3dcff;
+      text-align: center;
+      color: #1f2937;
+    }
+
+    .arrow {
+      align-self: center;
+      font-size: 16px;
+      color: var(--accent-dark);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .box {
+      padding: 10px 10px 8px;
+      border-radius: 10px;
+      background: #f8f9ff;
+      border: 1px solid #dbe3ff;
+      font-size: 13px;
+    }
+
+    .box h4 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--accent-dark);
+    }
+
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+      font-size: 13px;
+    }
+
+    .stat-pill {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #1f2937;
+    }
+
+    /* Right column cards */
+    .side-card {
+      background: var(--bg-card);
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+      padding: 14px 16px 12px;
+      font-size: 13px;
+    }
+
+    .side-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin-bottom: 6px;
+    }
+
+    .side-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .side-card ul li + li {
+      margin-top: 3px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .chip {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 11px;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-soft);
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-link {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #e1ecff;
+      border: 1px solid #c1d6ff;
+      font-size: 11px;
+      color: var(--accent-dark);
+    }
+
+    @media (max-width: 880px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        padding: 20px 14px 40px;
+      }
+      header {
+        padding: 16px 14px 14px;
+      }
+      .section {
+        padding: 14px 14px 12px;
+      }
+      .side-card {
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Top area -->
+    <div class="top-bar">
+      <span>Capstone Design 2026 · Team 42</span>
+      <span>Advisor: 배홍균 · 강대희 · 송해욱 · 이준성 · 정민지 · 한이연</span>
+    </div>
+
+    <header>
+      <h1>Context-Aware Personalized Citation Recommendation System</h1>
+      <div class="subtitle">for LaTeX-based Academic Writing</div>
+      <div class="header-bottom">
+        <div>
+          <span class="pill">Context-aware citation recommendation</span>
+          <span class="pill">Personalized bibliography soft bias</span>
+        </div>
+        <div>
+          <span>Research Goal:</span>
+          <span class="pill">문맥 + 사용자 연구 분야(bibliography)를 함께 고려한 자동 인용 추천 시스템</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Left column: main poster sections -->
+      <div>
+        <!-- 1. Background & Motivation -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-title">
+              <span class="section-number">1</span>
+              <span>Background &amp; Motivation</span>
+            </div>
+            <span class="section-label">Research Background</span>
+          </div>
+          <h3>기존 LaTeX 논문 작성 워크플로우의 한계</h3>
+          <ul>
+            <li><code>\\cite{}</code> 입력 시 적절한 인용 문헌을 직접 검색 및 선정하는 과정이 반복적이고 비효율적이다.</li>
+            <li>단순 키워드 검색만으로는 연구자 간의 관점 차이와 맥락을 동시에 반영하기 어렵다.</li>
+            <li>논문 작성 흐름을 저해하지 않으면서 context-aware citation 추천을 제공할 필요가 있다.</li>
+          </ul>
+        </section>
+
+        <!-- 2. System Overview -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-title">
+              <span class="section-number">2</span>
+              <span>System Overview</span>
+            </div>
+            <span class="section-label">Pipeline</span>
+          </div>
+          <h3>Offline Stage: 전처리 / 인덱싱 단계</h3>
+          <div class="two-col">
+            <div class="box">
+              <h4>Large-scale Paper Corpus 수집</h4>
+              <p>Semantic Scholar · arXiv Dataset 기반 약 수십만~수백만 편 논문 메타데이터 수집.</p>
+              <ul>
+                <li>title, abstract, year 등 메타 정보</li>
+                <li>인용 관계(citation edges) 추출</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h4>Citation Graph 구축 &amp; Embedding</h4>
+              <ul>
+                <li>paper nodes, citation edges로 인용 그래프 DB 생성</li>
+                <li>SPECTER2로 title + abstract 임베딩 생성</li>
+                <li>FAISS index build (ANN, GPU 가속) · Million-scale retrieval 지원</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 style="margin-top:10px;">Online Stage: 실시간 인용 추천 단계</h3>
+          <p class="note">LaTeX 문서에서 인용 placeholder 위치의 문맥(context)과 사용자 bibliography를 입력으로 사용.</p>
+
+          <div class="pipeline-row">
+            <div class="pill-block">
+              <strong>Query Embedding</strong><br/>
+              SPECTER2로 context + user info 임베딩
+            </div>
+            <div class="arrow">⟶</div>
+            <div class="pill-block">
+              <strong>FAISS Semantic Retrieval</strong><br/>
+              Top‑300 candidates
+            </div>
+            <div class="arrow">⟶</div>
+            <div class="pill-block">
+              <strong>Score Fusion</strong><br/>
+              semantic + bib soft bias
+            </div>
+            <div class="arrow">⟶</div>
+            <div class="pill-block">
+              <strong>Graph Expansion</strong><br/>
+              citation neighbors 확장
+            </div>
+          </div>
+
+          <div class="pipeline-row" style="margin-top:8px;">
+            <div class="pill-block">
+              <strong>Feature Engineering</strong><br/>
+              graph / statistical feature 계산
+            </div>
+            <div class="arrow">⟶</div>
+            <div class="pill-block">
+              <strong>1st Ranking</strong><br/>
+              Top‑30 candidates
+            </div>
+            <div class="arrow">⟶</div>
+            <div class="pill-block">
+              <strong>Cross Encoder Reranking</strong><br/>
+              Final Top‑10 recommendation
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Usage flow -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-title">
+              <span class="section-number">3</span>
+              <span>Usage Scenario</span>
+            </div>
+            <span class="section-label">User Flow</span>
+          </div>
+          <p>LaTeX 기반 논문 작성 과정에서 연구자가 <code>\\cite{}</code> 위치에 커서를 둘 때마다, 해당 위치의 문맥과 사용자의 bibliography를 이용해 인용 후보를 자동으로 추천한다.</p>
+          <div class="stats-row">
+            <div class="stat-pill">FAISS 후보 수 ≈ 300</div>
+            <div class="stat-pill">Retrieval 후보 ≈ 150</div>
+            <div class="stat-pill">1st Ranking ≈ 30</div>
+            <div class="stat-pill">Final Top‑10</div>
+          </div>
+        </section>
+
+        <!-- 4. Feature Engineering -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-title">
+              <span class="section-number">4</span>
+              <span>Feature Engineering</span>
+            </div>
+            <span class="section-label">Scoring</span>
+          </div>
+          <p>후보 논문에 대해 semantic, graph, recency, personalization을 모두 반영하는 복합 점수를 설계하였다.</p>
+          <ul>
+            <li><strong>semantic_score</strong>: SPECTER2 cosine similarity (context vs. paper)</li>
+            <li><strong>bib_score</strong>: user bibliography soft bias (유사 bib 논문 가중합)</li>
+            <li><strong>graph_score</strong>: citation graph proximity, co‑citation 기반 그래프 점수</li>
+            <li><strong>citation_count_log</strong>: log(1 + citations)으로 스케일 조정된 인용 수</li>
+            <li><strong>recency_score</strong>: 최신 논문에 가산점을 주는 시간 감쇠(exp decay)</li>
+          </ul>
+          <p class="note">
+            최종 1차 점수는 score(p) = α·semantic + β₁·graph + β₂·bib + β₃·log(cite) + β₄·recency 형태의 선형 결합으로 사용하고, 상위 후보에 대해 Cross Encoder로 재랭킹한다.
+          </p>
+        </section>
+
+        <!-- 5. Contribution -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-title">
+              <span class="section-number">5</span>
+              <span>Key Contribution</span>
+            </div>
+            <span class="section-label">Contribution</span>
+          </div>
+          <ul>
+            <li>Context-aware citation recommendation pipeline for LaTeX-based writing.</li>
+            <li>Personalized recommendation via user bibliography soft bias.</li>
+            <li>Semantic retrieval과 citation graph hybrid ranking 설계.</li>
+            <li>Multi-stage ranking (ANN retrieval → feature-based ranking → Cross Encoder reranking).</li>
+          </ul>
+        </section>
+
+        <!-- 6. Effects & Future Work -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-title">
+              <span class="section-number">6</span>
+              <span>Expected Effects &amp; Future Work</span>
+            </div>
+            <span class="section-label">Discussion</span>
+          </div>
+          <div class="two-col">
+            <div class="box">
+              <h4>기대 효과</h4>
+              <ul>
+                <li>논문 작성 중 인용 검색에 소요되는 시간 감소 및 작업 흐름의 향상.</li>
+                <li>LaTeX 환경에서 자연스럽게 통합된 citation 추천 경험 제공.</li>
+                <li>연구자 개개인의 연구 성향을 반영한 보다 정밀한 인용 추천.</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h4>향후 계획</h4>
+              <ul>
+                <li>실제 연구자들을 대상으로 한 사용자 연구 및 정성 평가.</li>
+                <li>다양한 학문 분야와 다국어 데이터셋으로의 확장.</li>
+                <li>CI/CD를 통한 LaTeX 에디터 플러그인 수준의 배포 및 고도화.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right column: side information -->
+      <div>
+        <div class="side-card">
+          <div class="side-title">Project Info</div>
+          <ul>
+            <li>Team 42 · Capstone Design 2026</li>
+            <li>For LaTeX-based Academic Writing</li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <div class="side-title">Authors</div>
+          <ul>
+            <li>강대희 · 송해욱 · 이준성 · 정민지 · 한이연</li>
+            <li>Advisor: 배홍균</li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <div class="side-title">Keywords</div>
+          <div class="chip-row">
+            <span class="chip">Citation Recommendation</span>
+            <span class="chip">Context-aware</span>
+            <span class="chip">Personalization</span>
+            <span class="chip">Semantic Retrieval</span>
+            <span class="chip">Graph-based Ranking</span>
+          </div>
+        </div>
+
+        <div class="side-card">
+          <div class="side-title">Technical Highlights</div>
+          <ul>
+            <li>Large-scale paper corpus &amp; citation graph 구축</li>
+            <li>SPECTER2 embedding + FAISS ANN 검색</li>
+            <li>User bibliography 기반 soft bias scoring</li>
+            <li>Graph feature + Cross Encoder reranking</li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <div class="side-title">Contact</div>
+          <ul>
+            <li>GitHub: <a href="https://github.com/your-id" target="_blank">your-id</a></li>
+            <li>Email: you@example.com</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div>© 2026 Team 42. All rights reserved.</div>
+      <div class="footer-link">Hosted on GitHub Pages</div>
+    </footer>
+
+  </div>
+</body>
+</html>
+```
+
+바꾸고 싶은 부분(저자 이름, 어드바이저, GitHub 링크, 일부 문장)은 그대로 편집해서 쓰면 된다.  
+추가로 섹션을 더 나누거나, 실제 실험 수치가 있으면 “5. Contribution” 아래에 작은 표도 쉽게 넣을 수 있어.
