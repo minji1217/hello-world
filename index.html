@@ -1,5 +1,4 @@
-아주 잘 보여!  
-이제 이 포스터 내용을 그대로 반영한 GitHub Pages용 `index.html`을 만들어 줄게. 아래 코드를 통째로 복붙해서 `index.html`로 저장하면 바로 쓸 수 있어. (화이트-블루톤, 단일 파일, 모바일 대응까지 넣었어.)
+
 
 ```html
 <!DOCTYPE html>
@@ -20,11 +19,7 @@
       --border-soft: #d4d9e5;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
@@ -33,14 +28,8 @@
       line-height: 1.6;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     .page {
       max-width: 1120px;
@@ -48,7 +37,7 @@
       padding: 32px 20px 64px;
     }
 
-    /* Top banner */
+    /* Top banner + header */
     .top-bar {
       background: #24479f;
       color: #e5edff;
@@ -58,10 +47,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-
-    .top-bar span {
-      opacity: 0.9;
     }
 
     header {
@@ -165,26 +150,15 @@
       letter-spacing: 0.04em;
     }
 
-    .section h3 {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .section p {
-      font-size: 14px;
-      margin-bottom: 6px;
-    }
+    .section h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .section p { font-size: 14px; margin-bottom: 6px; }
 
     .section ul {
       font-size: 14px;
       padding-left: 18px;
       margin-bottom: 6px;
     }
-
-    .section ul li + li {
-      margin-top: 2px;
-    }
+    .section ul li + li { margin-top: 2px; }
 
     .note {
       font-size: 12px;
@@ -232,7 +206,6 @@
       border: 1px solid #dbe3ff;
       font-size: 13px;
     }
-
     .box h4 {
       font-size: 13px;
       font-weight: 700;
@@ -255,7 +228,7 @@
       color: #1f2937;
     }
 
-    /* Right column cards */
+    /* Right column */
     .side-card {
       background: var(--bg-card);
       border-radius: 14px;
@@ -263,6 +236,7 @@
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
       padding: 14px 16px 12px;
       font-size: 13px;
+      margin-bottom: 12px;
     }
 
     .side-title {
@@ -272,14 +246,8 @@
       margin-bottom: 6px;
     }
 
-    .side-card ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .side-card ul li + li {
-      margin-top: 3px;
-    }
+    .side-card ul { list-style: none; padding-left: 0; }
+    .side-card ul li + li { margin-top: 3px; }
 
     .chip-row {
       display: flex;
@@ -319,34 +287,24 @@
     }
 
     @media (max-width: 880px) {
-      main {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      main { grid-template-columns: minmax(0, 1fr); }
     }
 
     @media (max-width: 520px) {
-      .page {
-        padding: 20px 14px 40px;
-      }
-      header {
-        padding: 16px 14px 14px;
-      }
-      .section {
-        padding: 14px 14px 12px;
-      }
-      .side-card {
-        padding: 12px;
-      }
+      .page { padding: 20px 14px 40px; }
+      header { padding: 16px 14px 14px; }
+      .section { padding: 14px 14px 12px; }
+      .side-card { padding: 12px; }
     }
   </style>
 </head>
 <body>
   <div class="page">
 
-    <!-- Top area -->
+    <!-- Top -->
     <div class="top-bar">
       <span>Capstone Design 2026 · Team 42</span>
-      <span>Advisor: 배홍균 · 강대희 · 송해욱 · 이준성 · 정민지 · 한이연</span>
+      <span>Advisor: 배홍균 · Members: 강대희 · 송해욱 · 이준성 · 정민지 · 한이연</span>
     </div>
 
     <header>
@@ -359,28 +317,31 @@
         </div>
         <div>
           <span>Research Goal:</span>
-          <span class="pill">문맥 + 사용자 연구 분야(bibliography)를 함께 고려한 자동 인용 추천 시스템</span>
+          <span class="pill">
+            현재 작성 중인 문헌의 문맥(Context)과 사용자의 연구 분야(Bibliography)를 함께 고려해
+            적절한 참고 문헌을 자동으로 추천하는 시스템 구축
+          </span>
         </div>
       </div>
     </header>
 
     <main>
-      <!-- Left column: main poster sections -->
+      <!-- LEFT: main content -->
       <div>
-        <!-- 1. Background & Motivation -->
+        <!-- 1. Background -->
         <section class="section">
           <div class="section-header">
             <div class="section-title">
               <span class="section-number">1</span>
-              <span>Background &amp; Motivation</span>
+              <span>연구 배경 및 목표</span>
             </div>
-            <span class="section-label">Research Background</span>
+            <span class="section-label">Background &amp; Motivation</span>
           </div>
           <h3>기존 LaTeX 논문 작성 워크플로우의 한계</h3>
           <ul>
-            <li><code>\\cite{}</code> 입력 시 적절한 인용 문헌을 직접 검색 및 선정하는 과정이 반복적이고 비효율적이다.</li>
-            <li>단순 키워드 검색만으로는 연구자 간의 관점 차이와 맥락을 동시에 반영하기 어렵다.</li>
-            <li>논문 작성 흐름을 저해하지 않으면서 context-aware citation 추천을 제공할 필요가 있다.</li>
+            <li><code>\\cite{}</code> 입력 시, 적절한 인용 문헌을 매번 직접 검색하고 선택해야 하는 과정이 반복적이며 비효율적이다.</li>
+            <li>단순 키워드 검색은 작성 중인 문맥과 연구자의 개인 연구 방향을 동시에 반영하기 어렵다.</li>
+            <li>논문 작성 흐름을 방해하지 않으면서도 문맥을 이해하는 context-aware citation 추천이 필요하다.</li>
           </ul>
         </section>
 
@@ -389,37 +350,54 @@
           <div class="section-header">
             <div class="section-title">
               <span class="section-number">2</span>
-              <span>System Overview</span>
+              <span>시스템 아키텍처</span>
             </div>
-            <span class="section-label">Pipeline</span>
+            <span class="section-label">Offline / Online Pipeline</span>
           </div>
-          <h3>Offline Stage: 전처리 / 인덱싱 단계</h3>
+
+          <h3>Offline Stage · 전처리 / 인덱싱 단계</h3>
           <div class="two-col">
             <div class="box">
               <h4>Large-scale Paper Corpus 수집</h4>
-              <p>Semantic Scholar · arXiv Dataset 기반 약 수십만~수백만 편 논문 메타데이터 수집.</p>
               <ul>
-                <li>title, abstract, year 등 메타 정보</li>
-                <li>인용 관계(citation edges) 추출</li>
+                <li>Semantic Scholar · arXiv Dataset</li>
+                <li>수십만~수백만 편 논문 메타데이터 수집</li>
               </ul>
             </div>
             <div class="box">
-              <h4>Citation Graph 구축 &amp; Embedding</h4>
+              <h4>Citation Graph 구축</h4>
               <ul>
-                <li>paper nodes, citation edges로 인용 그래프 DB 생성</li>
-                <li>SPECTER2로 title + abstract 임베딩 생성</li>
-                <li>FAISS index build (ANN, GPU 가속) · Million-scale retrieval 지원</li>
+                <li>논문을 노드, 인용 관계를 간선으로 하는 citation graph DB 생성</li>
               </ul>
             </div>
           </div>
 
-          <h3 style="margin-top:10px;">Online Stage: 실시간 인용 추천 단계</h3>
-          <p class="note">LaTeX 문서에서 인용 placeholder 위치의 문맥(context)과 사용자 bibliography를 입력으로 사용.</p>
+          <div class="two-col">
+            <div class="box">
+              <h4>SPECTER2 Embedding 생성</h4>
+              <ul>
+                <li>title + abstract 기반 dense embedding vectors 생성</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h4>FAISS Index Build</h4>
+              <ul>
+                <li>Approximate Nearest Neighbor 검색</li>
+                <li>GPU 가속 · Million-scale retrieval 지원</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 style="margin-top:10px;">Online Stage · 실시간 인용 추천 단계</h3>
+          <p class="note">
+            입력: LaTeX 문서의 citation 위치 문맥(Context) + User Bibliography<br/>
+            출력: Final Top‑10 Recommendation
+          </p>
 
           <div class="pipeline-row">
             <div class="pill-block">
               <strong>Query Embedding</strong><br/>
-              SPECTER2로 context + user info 임베딩
+              SPECTER2
             </div>
             <div class="arrow">⟶</div>
             <div class="pill-block">
@@ -434,14 +412,14 @@
             <div class="arrow">⟶</div>
             <div class="pill-block">
               <strong>Graph Expansion</strong><br/>
-              citation neighbors 확장
+              citation neighbors
             </div>
           </div>
 
           <div class="pipeline-row" style="margin-top:8px;">
             <div class="pill-block">
               <strong>Feature Engineering</strong><br/>
-              graph / statistical feature 계산
+              graph / statistical feature
             </div>
             <div class="arrow">⟶</div>
             <div class="pill-block">
@@ -451,7 +429,7 @@
             <div class="arrow">⟶</div>
             <div class="pill-block">
               <strong>Cross Encoder Reranking</strong><br/>
-              Final Top‑10 recommendation
+              Final Top‑10
             </div>
           </div>
         </section>
@@ -461,38 +439,41 @@
           <div class="section-header">
             <div class="section-title">
               <span class="section-number">3</span>
-              <span>Usage Scenario</span>
+              <span>사용 흐름</span>
             </div>
-            <span class="section-label">User Flow</span>
+            <span class="section-label">Feature Engineering</span>
           </div>
-          <p>LaTeX 기반 논문 작성 과정에서 연구자가 <code>\\cite{}</code> 위치에 커서를 둘 때마다, 해당 위치의 문맥과 사용자의 bibliography를 이용해 인용 후보를 자동으로 추천한다.</p>
+          <p>
+            사용자는 LaTeX 기반 논문 작성 환경에서 평소처럼 본문을 작성하고,
+            <code>\\cite{}</code> 위치에 커서를 둘 때마다 시스템이 자동으로 인용 후보를 추천한다.
+          </p>
           <div class="stats-row">
-            <div class="stat-pill">FAISS 후보 수 ≈ 300</div>
-            <div class="stat-pill">Retrieval 후보 ≈ 150</div>
-            <div class="stat-pill">1st Ranking ≈ 30</div>
-            <div class="stat-pill">Final Top‑10</div>
+            <div class="stat-pill">FAISS Stage: 약 300편 후보</div>
+            <div class="stat-pill">Retrieval Stage: 약 150편 후보</div>
+            <div class="stat-pill">1st Ranking: Top‑30</div>
+            <div class="stat-pill">Cross Encoder: Final Top‑10</div>
           </div>
         </section>
 
-        <!-- 4. Feature Engineering -->
+        <!-- 4. Features -->
         <section class="section">
           <div class="section-header">
             <div class="section-title">
               <span class="section-number">4</span>
-              <span>Feature Engineering</span>
+              <span>사용 특성 · Feature Engineering</span>
             </div>
             <span class="section-label">Scoring</span>
           </div>
-          <p>후보 논문에 대해 semantic, graph, recency, personalization을 모두 반영하는 복합 점수를 설계하였다.</p>
           <ul>
             <li><strong>semantic_score</strong>: SPECTER2 cosine similarity (context vs. paper)</li>
-            <li><strong>bib_score</strong>: user bibliography soft bias (유사 bib 논문 가중합)</li>
-            <li><strong>graph_score</strong>: citation graph proximity, co‑citation 기반 그래프 점수</li>
+            <li><strong>bib_score</strong>: user bibliography soft bias</li>
+            <li><strong>graph_score</strong>: citation graph proximity, co‑citation 기반 점수</li>
             <li><strong>citation_count_log</strong>: log(1 + citations)으로 스케일 조정된 인용 수</li>
-            <li><strong>recency_score</strong>: 최신 논문에 가산점을 주는 시간 감쇠(exp decay)</li>
+            <li><strong>recency_score</strong>: 최근 논문에 가산점을 주는 exp decay 기반 점수</li>
           </ul>
           <p class="note">
-            최종 1차 점수는 score(p) = α·semantic + β₁·graph + β₂·bib + β₃·log(cite) + β₄·recency 형태의 선형 결합으로 사용하고, 상위 후보에 대해 Cross Encoder로 재랭킹한다.
+            최종 1차 점수는 score(p) = α·semantic + β₁·bib + β₂·graph + β₃·log(cite) + β₄·recency 의 형태로 계산하며,
+            상위 후보에 대해 Cross Encoder를 이용한 2차 reranking을 수행한다.
           </p>
         </section>
 
@@ -501,55 +482,55 @@
           <div class="section-header">
             <div class="section-title">
               <span class="section-number">5</span>
-              <span>Key Contribution</span>
+              <span>핵심 기여</span>
             </div>
             <span class="section-label">Contribution</span>
           </div>
           <ul>
-            <li>Context-aware citation recommendation pipeline for LaTeX-based writing.</li>
-            <li>Personalized recommendation via user bibliography soft bias.</li>
-            <li>Semantic retrieval과 citation graph hybrid ranking 설계.</li>
-            <li>Multi-stage ranking (ANN retrieval → feature-based ranking → Cross Encoder reranking).</li>
+            <li>LaTeX 기반 환경에서 동작하는 context-aware citation recommendation 시스템 제안</li>
+            <li>사용자 bibliography soft bias를 활용한 개인화된 인용 추천</li>
+            <li>Semantic retrieval과 citation graph를 결합한 hybrid ranking 전략</li>
+            <li>FAISS ANN 검색 → feature 기반 1차 랭킹 → Cross Encoder 2차 랭킹으로 이어지는 multi-stage ranking 구조 설계</li>
           </ul>
         </section>
 
-        <!-- 6. Effects & Future Work -->
+        <!-- 6. Expected Effects -->
         <section class="section">
           <div class="section-header">
             <div class="section-title">
               <span class="section-number">6</span>
-              <span>Expected Effects &amp; Future Work</span>
+              <span>기대 효과 및 향후 계획</span>
             </div>
-            <span class="section-label">Discussion</span>
+            <span class="section-label">Expected Effects &amp; Future Work</span>
           </div>
           <div class="two-col">
             <div class="box">
               <h4>기대 효과</h4>
               <ul>
-                <li>논문 작성 중 인용 검색에 소요되는 시간 감소 및 작업 흐름의 향상.</li>
-                <li>LaTeX 환경에서 자연스럽게 통합된 citation 추천 경험 제공.</li>
-                <li>연구자 개개인의 연구 성향을 반영한 보다 정밀한 인용 추천.</li>
+                <li>논문 작성 중 인용 검색에 소요되는 시간 감소</li>
+                <li>작성 문맥과 연구자 취향을 동시에 반영한 인용 품질 향상</li>
+                <li>LaTeX 워크플로우에 자연스럽게 통합된 인용 추천 경험 제공</li>
               </ul>
             </div>
             <div class="box">
               <h4>향후 계획</h4>
               <ul>
-                <li>실제 연구자들을 대상으로 한 사용자 연구 및 정성 평가.</li>
-                <li>다양한 학문 분야와 다국어 데이터셋으로의 확장.</li>
-                <li>CI/CD를 통한 LaTeX 에디터 플러그인 수준의 배포 및 고도화.</li>
+                <li>실제 연구자 대상 사용자 연구 및 정성 평가 수행</li>
+                <li>다양한 학문 분야와 다국어 데이터셋으로 확장</li>
+                <li>LaTeX 에디터 플러그인 등으로 배포 및 시스템 고도화</li>
               </ul>
             </div>
           </div>
         </section>
       </div>
 
-      <!-- Right column: side information -->
+      <!-- RIGHT: side info -->
       <div>
         <div class="side-card">
           <div class="side-title">Project Info</div>
           <ul>
-            <li>Team 42 · Capstone Design 2026</li>
-            <li>For LaTeX-based Academic Writing</li>
+            <li>Capstone Design 2026 · Team 42</li>
+            <li>Context-Aware Personalized Citation Recommendation System</li>
           </ul>
         </div>
 
@@ -568,17 +549,17 @@
             <span class="chip">Context-aware</span>
             <span class="chip">Personalization</span>
             <span class="chip">Semantic Retrieval</span>
-            <span class="chip">Graph-based Ranking</span>
+            <span class="chip">Citation Graph</span>
           </div>
         </div>
 
         <div class="side-card">
           <div class="side-title">Technical Highlights</div>
           <ul>
-            <li>Large-scale paper corpus &amp; citation graph 구축</li>
-            <li>SPECTER2 embedding + FAISS ANN 검색</li>
-            <li>User bibliography 기반 soft bias scoring</li>
-            <li>Graph feature + Cross Encoder reranking</li>
+            <li>Large-scale paper corpus 및 citation graph 구축</li>
+            <li>SPECTER2 embedding + FAISS ANN 기반 semantic retrieval</li>
+            <li>User bibliography soft bias scoring</li>
+            <li>Graph feature + Cross Encoder 기반 multi-stage ranking</li>
           </ul>
         </div>
 
@@ -602,5 +583,6 @@
 </html>
 ```
 
-바꾸고 싶은 부분(저자 이름, 어드바이저, GitHub 링크, 일부 문장)은 그대로 편집해서 쓰면 된다.  
-추가로 섹션을 더 나누거나, 실제 실험 수치가 있으면 “5. Contribution” 아래에 작은 표도 쉽게 넣을 수 있어.
+바꿀 부분:
+- `your-id`, `you@example.com`만 네 정보로 수정하면 바로 공개해도 될 수준이야.  
+- 포스터에 실제로 적힌 내용과 조금이라도 다른 문장이 보이면, 그 부분만 텍스트 수정해서 쓰면 된다.
