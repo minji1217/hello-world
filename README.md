@@ -178,7 +178,7 @@ Module 2의 Top-150 후보를 기반으로 citation graph 확장 및 feature 계
 | `semantic_score` | SPECTER2 cosine similarity (context vs. paper) |
 | `bib_score` | bibliography embedding cosine similarity Top-5 평균 |
 | `graph_score` | co-citation, 공통 이웃 수 기반 graph strength |
-| `citation_count_log` | $\log(1 + citation\_{count})$ |
+| `citation_count_log` | $\log(1 + \mathrm{citation\_count})$ |
 | `recency_score` | 최신성 기반 점수 |
 | `source_faiss` | semantic retrieval 출처 여부 |
 | `source_graph` | graph expansion 출처 여부 |
