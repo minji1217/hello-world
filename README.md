@@ -343,7 +343,7 @@ score_1(p)
 - `score1`: Module 4-1 선형 ranking score
 - `score2`: Cross Encoder relevance score
 
-각 query에 대해 `score2` 기준으로 정렬하여 최종 Top-K recommendation 생성
+각 query에 대해 `score2` 기준으로 정렬하여 최종 Top-10 recommendation 생성
 
 ---
 
@@ -363,7 +363,7 @@ score_1(p)
 
 - **Module 4-2**
   - Cross Encoder 기반 정교한 reranking
-  - 최종 Top-K citation recommendation 생성
+  - 최종 Top-10 citation recommendation 생성
 
 ---
 
