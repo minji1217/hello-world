@@ -1,6 +1,3 @@
-아래는 지금 정리해 준 PIPELINE_README 내용까지 다 반영해서, 파이프라인만 따로 설명하는 `PIPELINE_README.md`로 바로 쓸 수 있는 형태야.  
-(깃허브에 `PIPELINE_README.md` 파일로 넣으면 됨.)
-
 ```markdown
 # 논문 추천 시스템 파이프라인
 
