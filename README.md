@@ -1,4 +1,3 @@
-```markdown
 # 논문 추천 시스템 파이프라인
 
 > Citation context 기반 논문 추천 시스템 — Retrieval → Graph Expansion → Ranking → Reranking
