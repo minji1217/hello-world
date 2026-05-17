@@ -37,7 +37,7 @@ raw corpus
 |-------------|---------------------------------------------|-----------------|
 | 초기        | FAISS semantic retrieval                    | Top‑3000        |
 | Module 2    | paper/context score fusion + bib soft bias | Top‑150         |
-| Module 3    | citation graph 확장                         | 약 150 ~ 300    |
+| Module 3    | citation graph 확장                         | 약 225    |
 | Module 4‑1  | feature 기반 1차 Ranking                    | Top‑30          |
 | Module 4‑2  | Cross Encoder 2차 Ranking                   | 최종 Top‑10     |
 
